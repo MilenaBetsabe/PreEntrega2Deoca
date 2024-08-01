@@ -1,0 +1,681 @@
+/** VARIABLES **/
+$primary-color: rgba(242, 221, 195, 0.793);
+$secondary-color: #8a2c17;
+$background-color: rgba(0, 0, 0, 0.686);
+$primary-font: "Libre Baskerville", serif;
+$highlight-color: #ca623ce4;
+$decorative-font: "Cinzel Decorative", serif; // Definición de la fuente decorativa
+
+/** FONTS **/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700;900&family=Dancing+Script:wght@400..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+/*!? RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+}
+
+/* MIXINS */
+@mixin button-styles {
+    background-color: $primary-color;
+    color: $secondary-color;
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+
+    &:hover {
+        background-color: $secondary-color;
+        color: $primary-color;
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*! BODY */
+body {
+    background-image: url(../img/fotomasa2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: $primary-font;
+}
+
+/*! HEADER */
+header {
+    height: 100px;
+    background-color: rgb(220, 191, 155);
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        a {
+            text-decoration: none;
+            font-family: "Cinzel Decorative", serif;
+            font-weight: 700;
+            color: $secondary-color;
+            font-size: 50px;
+            text-shadow: 1px 1px 1px #35160c;
+            transition: font-size 0.3s, text-shadow 0.3s;
+
+            &:hover {
+                font-size: 51px;
+                text-shadow: 1px 1px 2px black;
+            }
+        }
+    }
+}
+
+/*! NAV */
+header nav {
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            margin: 10px;
+
+            a {
+                text-decoration: none;
+                font-weight: 700;
+                color: $secondary-color;
+                font-size: 15px;
+                text-shadow: 0.5px 0.5px 1px #35160c;
+                transition: color 0.3s, font-size 0.3s;
+
+                &:hover {
+                    color: $secondary-color;
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+}
+
+nav {
+    position: relative;
+
+    .menu-icon {
+        display: none;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    #menu-toggle {
+        display: none;
+    }
+}
+
+/*! NAV RESPONSIVE */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    #menu-toggle:checked+.menu-icon+#nav-links {
+        display: flex;
+        background-color: rgba(242, 221, 195, 0.793);
+        flex-direction: column;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        animation: slideDown 0.5s ease-in-out;
+    }
+
+    header nav {
+        ul {
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+
+            li {
+                margin: 10px 0;
+            }
+        }
+
+        #menu-toggle:checked+.menu-icon+#nav-links {
+            opacity: 1;
+        }
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/*! MAIN */
+main {
+    color: rgba(242, 221, 195, 0.793);
+    margin: 10px 0;
+    padding: 1rem;
+    text-align: center;
+    height: 100%;
+
+    h2 {
+        font-size: 25px;
+        margin: 20px;
+    }
+}
+
+/** HERO SECTION */
+.hero-section {
+    height: calc(100vh - 100px);
+    background-color: rgba(0, 0, 0, 0.686);
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-section-tarjetas {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0px;
+    flex-wrap: wrap;
+
+    img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
+
+.card {
+    background-color: rgba(242, 221, 195, 0.793);
+    height: 350px;
+    width: 250px;
+}
+
+/* Productos */
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+
+    .producto {
+        background-color: $secondary-color;
+        border: 1px solid $primary-color;
+        border-radius: 10px;
+        margin: 1rem;
+        padding: 1rem;
+        width: calc(33% - 2rem);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        h3 {
+            margin: 1rem 0;
+            font-size: 1.5rem;
+            color: $primary-color;
+        }
+
+        p {
+            font-size: 1rem;
+            color: $primary-color;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .productos {
+        flex-direction: column;
+        align-items: center;
+
+        .producto {
+            width: 80%;
+        }
+    }
+}
+
+.nosotros {
+    .contenedor-nosotros {
+        background-color: rgba(0, 0, 0, 0.686);
+        margin-top: 30px;
+        padding: 2rem;
+        color: rgba(242, 221, 195, 0.904);
+        height: 100%;
+        display: grid;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 20% 80% 20%;
+        grid-template-areas:
+            "tyr historia"
+            "tyr historia"
+            "saludo saludo";
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas:
+                "titulo"
+                "tyr"
+                "historia"
+                "saludo";
+        }
+
+        h2 {
+            grid-area: titulo;
+        }
+
+        .foto-Tyr {
+            grid-area: tyr;
+
+            img {
+                width: 80%;
+                height: 100%;
+                object-fit: cover;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+            }
+        }
+
+        .historia {
+            grid-area: historia;
+            font-size: 14px;
+            margin-top: 70px;
+
+
+            .los_albores {
+                font-family: $decorative-font;
+                font-weight: 700;
+                color: $highlight-color;
+                font-size: 20px;
+                text-shadow: 1px 1px 1px #502010;
+            }
+        }
+
+        .saludo {
+            p {
+                grid-area: saludo;
+                font-size: 20px;
+                padding-top: 20px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.ustedes {
+    #carouselExampleIndicators {
+        .carousel-indicators {
+            button {
+                &.active {
+                    background-color: $highlight-color;
+                }
+            }
+        }
+
+        .carousel-inner {
+            background-color: rgba(0, 0, 0, 0.7) ;
+            color: rgba(242, 221, 195, 0.793);
+
+            .carousel-item {
+                img {
+                    display: block ;
+                    margin-left: auto;
+                    margin-right: auto ;
+                    height: 570px;
+                    width: 320px;
+
+                    @media (max-width: 768px) {
+                        height: 400px;
+                        width: 280px;
+                    }
+
+                    @media (max-width: 480px) {
+                        height: 300px;
+                        width: 200px;
+                    }
+                }
+            }
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: $highlight-color;
+        }
+    }
+}
+
+
+/** CONTACTO **/
+.botones_contacto {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    input {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+.contacto {
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgba(242, 221, 195, 0.793);
+    margin-top: 30px;
+
+    h2 {
+        margin-bottom: 45px;
+    }
+}
+
+.contenedor_contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.formulario_contacto {
+    flex: 1;
+    min-width: 300px;
+
+    form {
+        div {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: $primary-font;
+            font-size: 0.9rem;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            @include button-styles;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.mapa_contacto {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+
+    iframe {
+        width: 100%;
+        height: 300px;
+
+        @media (max-width: 768px) {
+            height: 200px;
+        }
+
+        @media (max-width: 480px) {
+            height: 150px;
+        }
+    }
+}
+
+/*? Responsive */
+@media (max-width: 768px) {
+    .contenedor_contacto {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .formulario_contacto,
+    .mapa_contacto {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario_contacto div {
+        margin-bottom: 1rem;
+    }
+
+    .formulario_contacto label,
+    .formulario_contacto input,
+    .formulario_contacto textarea {
+        width: 100%;
+    }
+}
+
+/*! ---- FOOTER ---- */
+.contenedor_footer {
+    background-color: rgba(242, 221, 195, 0.904);
+    color: rgba(0, 0, 0, 0.686);
+    height: auto;
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        "logo_los_albores direccion instagram_redes"
+        "logo_los_albores direccion wapp_redes";
+    justify-content: space-between;
+    text-align: center;
+    gap: 10px;
+}
+
+.logo_los_albores {
+    grid-area: logo_los_albores;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 60%;
+        height: 60%;
+        object-fit: cover;
+
+        @media (max-width: 768px) {
+            width: 50%;
+            height: 50%;
+        }
+
+        @media (max-width: 480px) {
+            width: 40%;
+            height: 40%;
+        }
+    }
+}
+
+.direccion {
+    grid-area: direccion;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instagram_redes,
+.wapp_redes {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+footer {
+    img {
+        width: 50px;
+        height: 50px;
+
+        @media (max-width: 768px) {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    .direccion a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-size: small;
+        font-weight: 700;
+    }
+}
+
+/*? Responsive*/
+@media (max-width: 768px) {
+    .contenedor_footer {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:
+            "logo_los_albores"
+            "direccion"
+            "instagram_redes"
+            "wapp_redes";
+    }
+}
+
+/*? PRODUCTOS*/
+.contenedor-menu {
+    background-color: rgba(0, 0, 0, 0.686);
+    margin-top: 30px;
+    padding: 2rem;
+    color: rgba(242, 221, 195, 0.904);
+    height: 100%;
+}
+
+.menu img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    @media (max-width: 768px) {
+        width: 80%;
+        height: auto;
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
+        height: auto;
+    }
+}
+
+#pizza,
+#panes {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    h2 {
+        margin-bottom: 20px;
+    }
+}
+
+.accordion-item {
+    background-color: rgba(0, 0, 0, 0.553);
+    border: 1px solid #444;
+    margin-bottom: 10px;
+}
+
+.accordion-header,
+.accordion-button {
+    background-color: #333;
+    color: #fff;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #444;
+}
+
+.accordion-body {
+    background-color: #2a2a2a;
+    color: #cccccc;
+}
+
+.accordion-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+
+    @media (max-width: 768px) {
+        width: 80%;
+        height: auto;
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/*? Responsive */
+@media (max-width: 768px) {
+
+    .accordion-button,
+    .accordion-body {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .accordion-button,
+    .accordion-body {
+        font-size: 12px;
+    }
+}

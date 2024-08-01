@@ -4,21 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los albores</title>
+
+    <title>Los Albores - Pizzas y Panes Artesanales en Córdoba</title>
+
+    <meta name="description" content="Descubre las mejores pizzas y panes artesanales de Córdoba en Los Albores. Calidad, sabor y tradición en cada bocado. ¡Visítanos y disfruta!">
+    <meta name="keywords" content="pizza artesanal, panes artesanales, Córdoba, fusión Italia Argentina, comida argentina, horno de pizza, Los Albores, pedidos de pizza, panadería artesanal">
+    <meta name="author" content="Milena Betsabe Deoca">
+    <meta name="robots" content="index">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+
+    <script src="script.js"></script>
+
 </head>
 
 <body>
+
     <header>
         <h1><a href="../index.html">Los Albores</a></h1>
         <nav>
-            <ul>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">☰</label>
+            <ul id="nav-links">
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="./pages/nosotros.html">Nosotros</a></li>
+                <li><a href="./pages/ustedes.html">Ustedes</a></li>
                 <li><a href="./pages/productos.html">Productos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="./pages/contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -28,84 +42,22 @@
             <h2>Fusionando Italia y Argentina en cada bocado</h2>
             <div class="hero-section-tarjetas">
                 <div class="card">
-                    <img src="./img/pizza1.JPG" class="card-img-top" alt="pizza">
+                    <img src="./img/pizza_muza.png" alt="Pizza artesanal" class="card-img-top">
                     <div class="card-body">
                         <a href="./pages/productos.html#pizza" class="btn btn-primary">Pizzas</a>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="./img/Pan1.JPG" class="card-img-top" alt="pan">
+                    <img src="./img/Pan1.png" alt="Pan artesanal" class="card-img-top">
                     <div class="card-body">
                         <a href="./pages/productos.html#panes" class="btn btn-primary">Panes</a>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="/img/horno3.jpg" class="card-img-top" alt="pizzas">
+                    <img src="/img/ordenar.png" alt="Pedidos" class="card-img-top">
                     <div class="card-body">
-                        <a href="https://wa.me/+5493624705998?text=Hola,%20quiero%20hacer%20un%20pedido" target="_blank"
-                            class="btn btn-primary">Hacé tu pedido</a>
+                        <a href="https://wa.me/+5493624705998?text=Hola,%20quiero%20hacer%20un%20pedido" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Pedidos</a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="nosotros" class="nosotros">
-            <div class="contenedor-nosotros">
-                <h2>Sabores napolitanos en la ciudad de Córdoba</h2>
-                <div class="foto-Tyr">
-                    <img src="../img/Tyr.JPG" alt="imagen de hombre">
-                </div>
-                <div class="historia">
-                    <p><strong class="los_albores">Los Albores</strong> nace en marzo de 2024 en la ciudad de Córdoba,
-                        con la idea de crear una pizza que mezcla lo mejor de la pizza italiana y la argentina.</p>
-                    <p>Nos enfocamos en largos tiempos de fermentación para darle a la masa esa textura crujiente y
-                        llena de sabor que tanto nos gusta.<br>Usamos una harina de fuerza con alto contenido proteico,
-                        hidratada con un 70% de agua por kilo de harina.<br>Después de amasar, dejamos que la masa
-                        repose y se desarrolle en forma de bollos dentro de fermentadores por 48 horas en frío.<br>Lo
-                        que hace especial a nuestra pizza es la combinación de la muzarella argentina, que nos recuerda
-                        a las clásicas pizzerías de Buenos Aires, con una masa fina y flexible que se dobla fácilmente
-                        para que puedas disfrutar de todos los ingredientes en cada bocado.</p>
-                    <div class="saludo">
-                        <p><strong>¡Sean todos bienvenidos a esta experiencia de sabor!</strong></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contacto" id="contacto">
-            <h2>Contacto</h2>
-            <div class="contenedor-contacto">
-                <div class="formulario_contacto">
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <div>
-                            <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre">
-                        </div>
-                        <div>
-                            <label for="telefono">Teléfono</label>
-                            <input type="number" name="telefono" id="telefono">
-                        </div>
-                        <div>
-                            <label for="mensaje">Mensaje</label>
-                            <textarea name="mensaje" id="mensaje"></textarea>
-                        </div>
-                        <div>
-                            <label for="comentario">Escribí tu comentario</label>
-                        </div>
-                        <div>
-                            <textarea name="comentario" id="comentario"></textarea>
-                        </div>
-                        <div>
-                            <input type="submit" value="Enviar">
-                            <input type="reset" value="Restablecer">
-                        </div>
-                    </form>
-                </div>
-                <div class="mapa_contacto">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.0161951709033!2d-64.19500912514529!3d-31.413679874262943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432987f83a5d7a1%3A0x6e739bf7747c35b8!2sDe%C3%A1n%20Funes%20611%2C%20X5000AAM%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1721303488577!5m2!1ses!2sar"
-                        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
@@ -114,18 +66,24 @@
     <footer>
         <div class="contenedor_footer">
             <div class="logo_los_albores">
-                <a href="./index.html" class="logo"><img src="./img/logo-final.jpg" alt="logo"></a>
+                <a href="./index.html" class="logo">
+                    <img src="./img/logo.png" alt="Logo Los Albores">
+                </a>
             </div>
             <div class="direccion">
-                <a href="https://maps.app.goo.gl/MBuCSmZfWvYBSJLG8">Deán Funes 611, Córdoba</a>
+                <a href="https://maps.app.goo.gl/MBuCSmZfWvYBSJLG8" target="_blank" rel="noopener noreferrer">
+                    Deán Funes 611, Córdoba
+                </a>
             </div>
             <div class="instagram_redes">
-                <a href="https://www.instagram.com/losalborespizzas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                    target="_blank"><img src="./img/instagram.png" alt="Instagram"></a>
+                <a href="https://www.instagram.com/losalborespizzas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                    <img src="./img/instagram.png" alt="Instagram">
+                </a>
             </div>
             <div class="wapp_redes">
-                <a href="https://wa.me/+5493624705998?text=Hola,%20quiero%20hacer%20un%20pedido." target="_blank"><img
-                        src="./img/whatsapp.png" alt="WhatsApp"></a>
+                <a href="https://wa.me/+5493624705998?text=Hola,%20quiero%20hacer%20un%20pedido." target="_blank" rel="noopener noreferrer">
+                    <img src="./img/whatsapp.png" alt="WhatsApp">
+                </a>
             </div>
         </div>
     </footer>
